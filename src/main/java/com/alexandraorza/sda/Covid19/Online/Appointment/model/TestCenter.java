@@ -1,24 +1,21 @@
 package com.alexandraorza.sda.Covid19.Online.Appointment.model;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "test_center")
 public class TestCenter {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "test_center_Id")
     private int testCenterId;
+    @Column(name = "name")
     private String name;
-    private Address address;
-    private int center_addressid;
+    @Column(name = "address")
+    private String address;
 
 
-    @Override
-    public String toString() {
-        return "TestCenter{" +
-                "name='" + name + '\'' +
-                ", address=" + address +
-                '}';
+    public TestCenter() {
     }
 
     public int getTestCenterId() {
@@ -29,18 +26,6 @@ public class TestCenter {
         this.testCenterId = testCenterId;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public int getAddressid() {
-        return center_addressid;
-    }
-
-    public void setAddressid(int addressid) {
-        this.center_addressid = addressid;
-    }
-
     public String getName() {
         return name;
     }
@@ -49,29 +34,21 @@ public class TestCenter {
         this.name = name;
     }
 
-    public Address getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAdderss(Address adderss) {
-        this.address = adderss;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-
-    public int getCenterAddressid() {
-        return center_addressid;
-    }
-
-    public void setCenterAddressid(int addressid) {
-        this.center_addressid = addressid;
-    }
-
-    public TestCenter() {
-    }
-
-    public TestCenter(String name, Address adderss) {
-        this.name = name;
-        this.address = adderss;
+    @Override
+    public String toString() {
+        return "TestCenter{" +
+                "testCenterId=" + testCenterId +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }
 

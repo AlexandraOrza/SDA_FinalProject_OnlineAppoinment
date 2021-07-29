@@ -1,17 +1,22 @@
 package com.alexandraorza.sda.Covid19.Online.Appointment.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "address")
 public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "address_Id")
     private int addressId;
+    @Column(name = "street_Name")
     private String streetName;
+    @Column(name = "street_Number")
     private int streetNumber;
+    @Column(name = "post_code")
     private int postCode;
+    @Column(name = "city")
     private String city;
 
     public Address() {

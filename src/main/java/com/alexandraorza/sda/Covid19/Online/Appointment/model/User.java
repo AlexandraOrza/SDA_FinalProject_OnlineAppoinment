@@ -1,28 +1,39 @@
 package com.alexandraorza.sda.Covid19.Online.Appointment.model;
 
-import javax.persistence.Id;
-import java.util.List;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name = "user")
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cnp")
     private int cnp;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "surname")
     private String surname;
+    @Column(name = "email")
     private String email;
+    @Column(name = "password")
     private String password;
+    @Column(name = "date_of_birth")
     private String dateOfBirth;
+    @Column(name = "status")
     private String status;
-    private int addressid; // foreign key in table User
+    @Column(name = "address_Id")
+    private int addressId; // foreign key in table User
 
-    public User(int cnp, String firstName, String surname, String email, String password, String dateOfBirth, int addressid) {
+    public User(int cnp, String firstName, String surname, String email, String password, String dateOfBirth, int addressId) {
         this.cnp = cnp;
         this.firstName = firstName;
         this.surname = surname;
         this.email = email;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
-        this.addressid = addressid;
+        this.addressId = addressId;
     }
 
     public User(){
@@ -79,13 +90,12 @@ public class User {
 
 
     public int getAddressId() {
-        return addressid;
+        return addressId;
     }
-    public void setAddressId(int addressid) {
-        this.addressid = addressid;
+    public void setAddressId(int addressId) {
+        this.addressId = addressId;
     }
 
-    private List<Role> roles;
 
     @Override
     public String toString() {
@@ -97,8 +107,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", status='" + status + '\'' +
-                ", addressid=" + addressid +
-                ", roles=" + roles +
+                ", addressId=" + addressId +
                 '}';
     }
 }
