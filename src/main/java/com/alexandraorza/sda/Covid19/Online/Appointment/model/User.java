@@ -4,37 +4,41 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cnp")
     private int cnp;
+
     @Column(name = "first_name")
     private String firstName;
+
     @Column(name = "surname")
     private String surname;
-    @Column(name = "email")
-    private String email;
+
     @Column(name = "password")
     private String password;
+
     @Column(name = "date_of_birth")
     private String dateOfBirth;
+
     @Column(name = "status")
     private String status;
-    @Column(name = "address_Id")
-    private int addressId; // foreign key in table User
 
-    public User(int cnp, String firstName, String surname, String email, String password, String dateOfBirth, int addressId) {
+    @Column(name = "address_Id")
+    private int addressId; // foreign key in table Users
+
+    public User(int cnp, String firstName, String surname, String password, String dateOfBirth, int addressId) {
         this.cnp = cnp;
         this.firstName = firstName;
         this.surname = surname;
-        this.email = email;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
         this.addressId = addressId;
     }
+
 
     public User(){
     }
@@ -58,13 +62,6 @@ public class User {
     }
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getDateOfBirth() {
@@ -103,7 +100,7 @@ public class User {
                 "cnp=" + cnp +
                 ", firstName='" + firstName + '\'' +
                 ", surname='" + surname + '\'' +
-                ", email='" + email + '\'' +
+                ", email='" + '\'' +
                 ", password='" + password + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", status='" + status + '\'' +

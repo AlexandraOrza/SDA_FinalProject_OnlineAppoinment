@@ -3,17 +3,18 @@ package com.alexandraorza.sda.Covid19.Online.Appointment.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "appointment")
+@Table(name = "appointments")
 public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "appointment_Id")
-    private int appointmentID;
-    @Column(name = "test_Center_Id")
-    private int testCenterId; // foreign key  Appointments -> Test Center
+    private Long id;
+    @Column(name = "test_center_id")
+    private Long testCenterId;
     @Column(name = "cnp_Of_User")
     private int cnpOfUser;
+    @Column(name = "adress_of_user")
+    private String addressOfUser;
     @Column(name = "time")
     private String time;
     @Column(name = "date")
@@ -21,29 +22,19 @@ public class Appointment {
 
     public Appointment(){
     }
-
-    public Appointment(int appointmentID, int testCenterId, int cnpOfUser, String time, String date) {
-        this.appointmentID = appointmentID;
-        this.testCenterId = testCenterId;
+    public Appointment(Long ID, int cnpOfUser, String time, String date) {
+        this.id = ID;
         this.cnpOfUser = cnpOfUser;
         this.time = time;
         this.date = date;
     }
 
-    public int getAppointmentID() {
-        return appointmentID;
+    public Long getAppointmentID() {
+        return id;
     }
 
-    public void setAppointmentID(int appointmentID) {
-        this.appointmentID = appointmentID;
-    }
-
-    public int getTestCenterId() {
-        return testCenterId;
-    }
-
-    public void setTestCenterId(int testCenterId) {
-        this.testCenterId = testCenterId;
+    public void setAppointmentID(Long id) {
+        this.id = id;
     }
 
     public int getCnpOfUser() {

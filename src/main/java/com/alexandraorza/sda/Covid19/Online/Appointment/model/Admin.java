@@ -10,8 +10,14 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "admin_Id")
     private int AdminId;
+
     @Column(name = "admin_Name")
     private String AdminName;
+
+    @OneToOne
+    @JoinColumn(name = "account_Id")
+    private Account accountId;
+
 
     public int getAdminId() {
         return AdminId;
@@ -28,4 +34,5 @@ public class Admin {
     public void setAdminName(String adminName) {
         AdminName = adminName;
     }
+
 }
