@@ -1,6 +1,6 @@
 package com.alexandraorza.sda.Covid19.Online.Appointment.config;
 
-import com.alexandraorza.sda.Covid19.Online.Appointment.service.dto.AccountService;
+import com.alexandraorza.sda.Covid19.Online.Appointment.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

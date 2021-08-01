@@ -10,16 +10,16 @@ public class Schedules {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-    @OneToOne
+
+    @ManyToOne
     @JoinColumn(name = "test_center_Id")
     private TestCenter testCenter;
 
-    @Column(name = "desired_date")
-    private Date desiredDate;
+    @Column(name = "date")
+    private String date;
 
     @Column(name = "availability")
     private String availability;
-
 
     public Long getId() {
         return Id;
@@ -37,12 +37,12 @@ public class Schedules {
         this.testCenter = testCenter;
     }
 
-    public Date getDesiredDate() {
-        return desiredDate;
+    public String getDate() {
+        return date;
     }
 
-    public void setDesiredDate(Date desiredDate) {
-        this.desiredDate = desiredDate;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getAvailability() {
@@ -58,7 +58,7 @@ public class Schedules {
         return "Schedules{" +
                 "Id=" + Id +
                 ", testCenter=" + testCenter +
-                ", desiredDate=" + desiredDate +
+                ", date='" + date + '\'' +
                 ", availability='" + availability + '\'' +
                 '}';
     }

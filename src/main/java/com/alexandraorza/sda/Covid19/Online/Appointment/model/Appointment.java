@@ -9,14 +9,20 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne
     @Column(name = "test_center_id")
-    private Long testCenterId;
+    private TestCenter testCenter;
+
     @Column(name = "cnp_Of_User")
     private int cnpOfUser;
+
     @Column(name = "adress_of_user")
     private String addressOfUser;
+
     @Column(name = "time")
     private String time;
+
     @Column(name = "date")
     private String date;
 
@@ -29,12 +35,20 @@ public class Appointment {
         this.date = date;
     }
 
-    public Long getAppointmentID() {
+    public Long getId() {
         return id;
     }
 
-    public void setAppointmentID(Long id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public TestCenter getTestCenter() {
+        return testCenter;
+    }
+
+    public void setTestCenter(TestCenter testCenter) {
+        this.testCenter = testCenter;
     }
 
     public int getCnpOfUser() {
@@ -43,6 +57,14 @@ public class Appointment {
 
     public void setCnpOfUser(int cnpOfUser) {
         this.cnpOfUser = cnpOfUser;
+    }
+
+    public String getAddressOfUser() {
+        return addressOfUser;
+    }
+
+    public void setAddressOfUser(String addressOfUser) {
+        this.addressOfUser = addressOfUser;
     }
 
     public String getTime() {
@@ -64,10 +86,12 @@ public class Appointment {
     @Override
     public String toString() {
         return "Appointment{" +
-                "time=" + time +
-                ", date=" + date +
-                //    ", location=" + location +
+                "id=" + id +
+                ", testCenter=" + testCenter +
+                ", cnpOfUser=" + cnpOfUser +
+                ", addressOfUser='" + addressOfUser + '\'' +
+                ", time='" + time + '\'' +
+                ", date='" + date + '\'' +
                 '}';
     }
-
 }

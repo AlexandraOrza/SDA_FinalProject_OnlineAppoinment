@@ -9,8 +9,10 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "password")
     private String password;
+
     @Column(name = "email")
     private String email;
 
@@ -18,13 +20,12 @@ public class Account {
     @Column(name = "acount_role")
     private Role role;
 
-
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
-        id = id;
+        this.id = id;
     }
 
     public String getPassword() {
@@ -54,7 +55,7 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "Id=" + id +
+                "id=" + id +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", role=" + role +

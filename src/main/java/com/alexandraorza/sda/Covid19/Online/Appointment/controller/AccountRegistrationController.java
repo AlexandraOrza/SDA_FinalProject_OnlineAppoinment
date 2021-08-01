@@ -1,6 +1,6 @@
 package com.alexandraorza.sda.Covid19.Online.Appointment.controller;
 
-import com.alexandraorza.sda.Covid19.Online.Appointment.service.dto.AccountService;
+import com.alexandraorza.sda.Covid19.Online.Appointment.service.AccountService;
 import com.alexandraorza.sda.Covid19.Online.Appointment.service.dto.AccountDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +26,7 @@ public class AccountRegistrationController {
         return new AccountDTO();
     }
 
+
     @GetMapping
     public String showRegistrationForm(Model model) {
         return "registration";
@@ -42,4 +43,6 @@ public class AccountRegistrationController {
         accountService.createAccount(accountDTO);
         return "redirect:/registration?success";
     }
+
+
 }

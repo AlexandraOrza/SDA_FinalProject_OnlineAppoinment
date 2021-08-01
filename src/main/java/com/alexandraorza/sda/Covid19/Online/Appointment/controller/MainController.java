@@ -15,4 +15,13 @@ public class MainController {
     public String login(Model model) {
         return "login";
     }
+
+    @GetMapping(value="/user")
+    public String user() {
+        return "user";
+    }
+    @GetMapping(value="/admin")
+    public String admin() {
+        return "admin";
+    }
 }

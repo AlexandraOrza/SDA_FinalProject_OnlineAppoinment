@@ -9,30 +9,45 @@ public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "admin_Id")
-    private int AdminId;
+    private int adminId;
 
     @Column(name = "admin_Name")
-    private String AdminName;
+    private String adminName;
 
     @OneToOne
     @JoinColumn(name = "account_Id")
     private Account accountId;
 
-
     public int getAdminId() {
-        return AdminId;
+        return adminId;
     }
 
     public void setAdminId(int adminId) {
-        AdminId = adminId;
+        this.adminId = adminId;
     }
 
     public String getAdminName() {
-        return AdminName;
+        return adminName;
     }
 
     public void setAdminName(String adminName) {
-        AdminName = adminName;
+        this.adminName = adminName;
     }
 
+    public Account getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Account accountId) {
+        this.accountId = accountId;
+    }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "adminId=" + adminId +
+                ", adminName='" + adminName + '\'' +
+                ", accountId=" + accountId +
+                '}';
+    }
 }
