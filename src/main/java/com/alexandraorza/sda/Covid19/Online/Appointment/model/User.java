@@ -27,20 +27,20 @@ public class User {
     @Column(name = "status")
     private String status;
 
-    @Column(name = "address_Id")
-    private int addressId;
+    @Column(name = "address")
+    private String address;
 
     @OneToOne
     @JoinColumn(name = "account_Id")
     private Account account;
 
-    public User(int cnp, String firstName, String surname, String password, String dateOfBirth, int addressId) {
+    public User(int cnp, String firstName, String surname, String password, String dateOfBirth, String address) {
         this.cnp = cnp;
         this.firstName = firstName;
         this.surname = surname;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
-        this.addressId = addressId;
+        this.address = address;
     }
 
     public User(){
@@ -94,12 +94,12 @@ public class User {
         this.status = status;
     }
 
-    public int getAddressId() {
-        return addressId;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddressId(int addressId) {
-        this.addressId = addressId;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Account getAccount() {
@@ -119,7 +119,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", status='" + status + '\'' +
-                ", addressId=" + addressId +
+                ", address=" + address +
                 ", account=" + account +
                 '}';
     }

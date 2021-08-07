@@ -11,7 +11,7 @@ public class Appointment {
     private Long id;
 
     @ManyToOne
-    @Column(name = "test_center_id")
+    @JoinColumn(name = "test_center_id")
     private TestCenter testCenter;
 
     @Column(name = "cnp_Of_User")

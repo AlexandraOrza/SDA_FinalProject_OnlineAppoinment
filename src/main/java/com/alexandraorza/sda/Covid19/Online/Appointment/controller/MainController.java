@@ -16,11 +16,12 @@ public class MainController {
         return "login";
     }
 
-    @GetMapping(value="/user")
+    @GetMapping("/user")
     public String user() {
         return "user";
     }
-    @GetMapping(value="/admin")
+
+    @GetMapping("/admin")
     public String admin() {
         return "admin";
     }
