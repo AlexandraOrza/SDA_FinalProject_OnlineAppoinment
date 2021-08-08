@@ -1,11 +1,10 @@
 package com.alexandraorza.sda.Covid19.Online.Appointment.model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "schedules")
-public class Schedules {
+public class Schedule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

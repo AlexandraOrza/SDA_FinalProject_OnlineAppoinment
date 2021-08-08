@@ -26,7 +26,6 @@ public class AccountRegistrationController {
         return new AccountDTO();
     }
 
-
     @GetMapping
     public String showRegistrationForm(Model model) {
         return "registration";

@@ -3,27 +3,17 @@ package com.alexandraorza.sda.Covid19.Online.Appointment.service.dto;
 
 public class UserDTO {
 
-    private int cnp;
-
     private String firstName;
 
     private String surname;
 
-    private String password;
-
     private String dateOfBirth;
 
-    private String status;
+    private int cnp;
 
     private String address;
 
-    public int getCnp() {
-        return cnp;
-    }
-
-    public void setCnp(int cnp) {
-        this.cnp = cnp;
-    }
+    private String password;
 
     public String getFirstName() {
         return firstName;
@@ -41,14 +31,6 @@ public class UserDTO {
         this.surname = surname;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getDateOfBirth() {
         return dateOfBirth;
     }
@@ -57,12 +39,12 @@ public class UserDTO {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getStatus() {
-        return status;
+    public int getCnp() {
+        return cnp;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setCnp(int cnp) {
+        this.cnp = cnp;
     }
 
     public String getAddress() {
@@ -71,5 +53,13 @@ public class UserDTO {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

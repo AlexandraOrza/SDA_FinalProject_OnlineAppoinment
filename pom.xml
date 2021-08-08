@@ -48,6 +48,12 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.5.0-b01</version>
+		</dependency>
+
 		<!-- bootstrap and jquery -->
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -68,6 +74,54 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.24</version>
 			<scope>runtime</scope>
+		</dependency>
+        <dependency>
+            <groupId>com.alexandraorza.sda</groupId>
+            <artifactId>Covid19-Online-Appointment</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+		<dependency>
+			<groupId>com.alexandraorza.sda</groupId>
+			<artifactId>Covid19-Online-Appointment</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.alexandraorza.sda</groupId>
+			<artifactId>Covid19-Online-Appointment</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+        <dependency>
+            <groupId>com.alexandraorza.sda</groupId>
+            <artifactId>Covid19-Online-Appointment</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alexandraorza.sda</groupId>
+            <artifactId>Covid19-Online-Appointment</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+		<dependency>
+			<groupId>com.alexandraorza.sda</groupId>
+			<artifactId>Covid19-Online-Appointment</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.alexandraorza.sda</groupId>
+			<artifactId>Covid19-Online-Appointment</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.alexandraorza.sda</groupId>
+			<artifactId>Covid19-Online-Appointment</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 

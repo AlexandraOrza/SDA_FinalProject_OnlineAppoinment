@@ -9,8 +9,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cnp")
-    private int cnp;
+    private Long id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -18,40 +17,42 @@ public class User {
     @Column(name = "surname")
     private String surname;
 
-    @Column(name = "password")
-    private String password;
-
     @Column(name = "date_of_birth")
     private String dateOfBirth;
 
-    @Column(name = "status")
-    private String status;
+    @Column(name = "cnp")
+    private int cnp;
 
     @Column(name = "address")
     private String address;
+
+    @Column(name = "password")
+    private String password;
 
     @OneToOne
     @JoinColumn(name = "account_Id")
     private Account account;
 
-    public User(int cnp, String firstName, String surname, String password, String dateOfBirth, String address) {
-        this.cnp = cnp;
+    public User(String firstName, String surname, String dateOfBirth, int cnp, String address, String password, Account account) {
         this.firstName = firstName;
         this.surname = surname;
-        this.password = password;
         this.dateOfBirth = dateOfBirth;
-        this.address = address;
-    }
-
-    public User(){
-    }
-
-    public int getCnp() {
-        return cnp;
-    }
-
-    public void setCnp(int cnp) {
         this.cnp = cnp;
+        this.address = address;
+        this.password = password;
+        this.account = account;
+    }
+
+    public User() {
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -70,14 +71,6 @@ public class User {
         this.surname = surname;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getDateOfBirth() {
         return dateOfBirth;
     }
@@ -86,12 +79,12 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getStatus() {
-        return status;
+    public int getCnp() {
+        return cnp;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setCnp(int cnp) {
+        this.cnp = cnp;
     }
 
     public String getAddress() {
@@ -100,6 +93,14 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Account getAccount() {
@@ -113,13 +114,12 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "cnp=" + cnp +
-                ", firstName='" + firstName + '\'' +
+                "firstName='" + firstName + '\'' +
                 ", surname='" + surname + '\'' +
-                ", password='" + password + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
-                ", status='" + status + '\'' +
-                ", address=" + address +
+                ", cnp=" + cnp +
+                ", address='" + address + '\'' +
+                ", password='" + password + '\'' +
                 ", account=" + account +
                 '}';
     }

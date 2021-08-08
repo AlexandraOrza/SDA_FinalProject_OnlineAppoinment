@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" class="h-100"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+       Welcome to admin page!
+<a href="logout">logout</a> <br><br>
+      Hello ADMIN
+<div class="btn-group btn-group-lg" role="group" aria-label="Basic example"><br />
+    <a th:href="@{/manageUser}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" ><button type="button" class="btn btn-secondary">Users</button></a>
+    <a th:href="@{/manageAddress}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" ><button type="button" class="btn btn-secondary ">Addresses</button></a>
+    <a th:href="@{/manageAppointment}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}"><button type="button" class="btn btn-secondary">Appointments</button></a>
+    <a th:href="@{/manageTestCenter}" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}"><button type="button" class="btn btn-secondary">Test Centers</button></a>
+
+</div>
+</body>
+</html>

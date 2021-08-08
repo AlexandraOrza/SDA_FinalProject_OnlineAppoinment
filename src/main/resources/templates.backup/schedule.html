@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+<div th:switch="${schedules}" class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <p class="my-5"><a href="/signup" class="btn btn-primary"><i class="fas fa-user-plus ml-2"></i></a></p>
+            <h2 th:case="null">No scheduled appointment yet!</h2>
+            <div th:case="*">
+                <h2 class="my-5">Schedule</h2>
+                <table class="table table-striped table-responsive-md">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>TestCenter</th>
+                        <th>Availability</th>
+                        <th>Date</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="schedule : ${schedules}">
+                        <td th:text="${schedule.id}"></td>
+                        <td th:text="${schedule.availability}"></td>
+                        <td th:text="${schedule.date}"></td>
+                        <td><a th:href="@{/edit/{id}(id=${schedule})}" class="btn btn-primary"><i
+                                class="fas fa-user-edit ml-2"></i></a></td>
+                        <td><a th:href="@{/delete/{id}(id=${schedule})}" class="btn btn-primary"><i
+                                class="fas fa-user-times ml-2"></i></a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <label for="date" style="color: black">Date: </label>
+    <input required type="date" th:placeholder="YYYY-MM-DD" id="date" name="date" class="form-control" min="2021-08-20" max="2021-12-31" />
+</div>
+<div class="form-group">
+    <label for="time" style="color: black; position: relative;">Time: [09:00 - 17:00] </label>
+    <select name="time" id="time" class="form-control">
+        <option value="09:00">09:30</option>
+        <option value="09:30">10:00</option>
+        <option value="10:00">10:30</option>
+        <option value="10:30">11:00</option>
+        <option value="11:00">11:30</option>
+        <option value="11:30">12:00</option>
+        <option value="12:00">12:30</option>
+        <option value="12:30">13:00</option>
+        <option value="13:00">13:30</option>
+        <option value="13:30">14:00</option>
+        <option value="14:00">14:30</option>
+        <option value="14:30">15:00</option>
+        <option value="15:00">15:30</option>
+        <option value="15:30">16:00</option>
+        <option value="16:00">16:30</option>
+        <option value="16:30">17:00</option>
+    </select>
+</div>
+</body>
+</html>

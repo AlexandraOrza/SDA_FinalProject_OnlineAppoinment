@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title>Home Page</title>
+  <title>Home Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
@@ -32,9 +32,9 @@
             <td th:text="${testCenter.id}"></td>
             <td th:text="${testCenter.name}"></td>
             <td th:text="${testCenter.email}"></td>
-            <td><a th:href="@{/edit/{id}(id=${testCenter.id})}" class="btn btn-primary"><i
+            <td><a th:href="@{/edit-testcenter/{id}(id=${testCenter.id})}" class="btn btn-primary"><i
                     class="fas fa-user-edit ml-2"></i></a></td>
-            <td><a th:href="@{/delete/{id}(id=${testCenter.id})}" class="btn btn-primary"><i
+            <td><a th:href="@{/delete-testcenter/{id}(id=${testCenter.id})}" class="btn btn-primary"><i
                     class="fas fa-user-times ml-2"></i></a></td>
           </tr>
           </tbody>

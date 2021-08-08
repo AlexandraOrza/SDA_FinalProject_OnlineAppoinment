@@ -1,0 +1,46 @@
+
+body, html { min-height: 100%; }
+body {
+    color: blue;
+    background: url(../images/1920size2.jpg) center no-repeat;
+    /* background-image: url('http://www.birds.com/wp-content/uploads/home/bird4.jpg');*/
+    /*background-image: url(../images/1920size2.jpg);*/
+    /* background: url(../images/d1.png) center no-repeat;*/
+    background-size: cover;
+    /* background-color: #444;*/
+}
+
+
+/* The navbar */
+.topnav {
+    overflow: hidden;
+    background-color: #979c9c;
+    width: 100%;
+    opacity: 0.5;
+}
+
+/* Navbar links */
+.topnav a {
+
+    display: block;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 17px;
+
+
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav-right {
+    float: right;
+
+}

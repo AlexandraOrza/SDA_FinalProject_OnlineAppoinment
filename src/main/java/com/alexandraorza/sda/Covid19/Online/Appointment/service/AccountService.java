@@ -4,22 +4,30 @@ import com.alexandraorza.sda.Covid19.Online.Appointment.model.Account;
 import com.alexandraorza.sda.Covid19.Online.Appointment.model.Role;
 import com.alexandraorza.sda.Covid19.Online.Appointment.repository.AccountRepository;
 import com.alexandraorza.sda.Covid19.Online.Appointment.service.dto.AccountDTO;
+import com.alexandraorza.sda.Covid19.Online.Appointment.service.mail.MailService;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
+
+import javax.mail.MessagingException;
+import java.util.Collection;
+import java.util.Collections;
 
 @Service
 public class AccountService implements UserDetailsService {
     private final AccountRepository accountRepository;
     private final BCryptPasswordEncoder passwordEncoder;
+    private final MailService mailService;
 
-    public AccountService(AccountRepository accountRepository, BCryptPasswordEncoder passwordEncoder) {
+    public AccountService(AccountRepository accountRepository, BCryptPasswordEncoder passwordEncoder, MailService mailService) {
         this.accountRepository = accountRepository;
         this.passwordEncoder = passwordEncoder;
+        this.mailService = mailService;
     }
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -27,13 +35,25 @@ public class AccountService implements UserDetailsService {
         if (account == null) {
             throw new UsernameNotFoundException("Invalid username or password");
         }
-        return new User(account.getEmail(), account.getPassword(), new ArrayList<>());
+        return new User(account.getEmail(), account.getPassword(), mapRolesToAuthorities(account.getRole()));
+    }
+
+    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Role role)
+    {
+        return Collections.singletonList(new SimpleGrantedAuthority(role.name()));
     }
     public void createAccount(AccountDTO accountDTO) {
         Account account = new Account();
         account.setEmail(accountDTO.getEmail());
         account.setPassword(passwordEncoder.encode(accountDTO.getPassword()));
+        account.setRole(Role.USER);
         accountRepository.save(account);
+
+        try {
+            mailService.sendMail("office@covid.com", accountDTO.getEmail(),"account created on covid application", "Thank you for your registration!");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
     }
     public boolean accountExist(String email) {
         Account accountExist = accountRepository.findByEmail(email);
